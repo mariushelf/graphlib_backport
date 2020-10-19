@@ -1,9 +1,12 @@
 [tool.poetry]
-name = "graphlib"
+name = "graphlib_backport"
 version = "1.0.0"
-description = "Backport of the Python 3.9 graphlib module for Python 3.8+"
+description = "Backport of the Python 3.9 graphlib module for Python 3.6+"
 authors = ["Marius Helf <helfsmarius@gmail.com>"]
 license = "PSF"
+packages = [
+    {include="graphlib"}
+]
 
 [tool.poetry.dependencies]
 python = "^3.6"
