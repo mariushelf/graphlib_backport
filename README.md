@@ -4,6 +4,9 @@ Backport of the Python 3.9
 [graphlib](https://docs.python.org/3/library/graphlib.html)
 module for older Python versions.
 
+Github:
+[https://github.com/mariushelf/graphlib_backport](https://github.com/mariushelf/graphlib_backport)
+
 # Supported versions
 
 This backport currently support Python 3.6, 3.7, 3.8, 3.9 and and pypy3
@@ -12,7 +15,7 @@ This backport currently support Python 3.6, 3.7, 3.8, 3.9 and and pypy3
 
 # Installation
 
-`pip install git+https://github.com/mariushelf/graphlib_backports.git`
+`pip install graphlib_backport`
 
 # Usage
 
@@ -62,14 +65,6 @@ pip-installed into older versions of Python.
 
 So all thanks go to the original contributors of the
 [original sourcecode](https://github.com/python/cpython/blob/3.9/Lib/graphlib.py).
-
-
-# Supported versions
-
-The backport currently supports Python 3.8+. I plan to add support for
-Python 3.7+. This requires some (minimal) work because the original package
-makes use of the
-[walrus operator](https://docs.python.org/3/whatsnew/3.8.html#assignment-expressions).
 
 
 # License
