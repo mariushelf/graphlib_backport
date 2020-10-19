@@ -49,6 +49,12 @@ The executables for all python versions must be in the path, e.g,
 You can install them with [pyenv](https://github.com/pyenv/pyenv).
 
 
+## Publishing a new version
+
+Update the version in the pyproject.toml and run `make publish` to build and upload
+the package ti PyPI.
+
+
 # Thanks
 
 I did not create this code -- I only repackaged it so it can be

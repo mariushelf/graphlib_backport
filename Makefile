@@ -11,3 +11,10 @@ install:
 
 test:
 	tox -p
+
+build:
+	poetry build
+
+publish: build
+	python -mtwine upload dist/*
+
