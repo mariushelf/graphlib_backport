@@ -6,10 +6,9 @@ authors = ["Marius Helf <helfsmarius@gmail.com>"]
 license = "PSF"
 
 [tool.poetry.dependencies]
-python = "^3.8"
+python = "^3.7"
 
 [tool.poetry.dev-dependencies]
-pytest = "*"
 
 [build-system]
 requires = ["poetry>=1.0"]
