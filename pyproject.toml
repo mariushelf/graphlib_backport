@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "graphlib"
+version = "1.0.0"
+description = "Backport of the Python 3.9 graphlib module for Python 3.8+"
+authors = ["Marius Helf <helfsmarius@gmail.com>"]
+license = "PSF"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+
+[tool.poetry.dev-dependencies]
+pytest = "*"
+
+[build-system]
+requires = ["poetry>=1.0"]
+build-backend = "poetry.masonry.api"
