@@ -9,5 +9,12 @@ download_sourcecode:
 install:
 	poetry install
 
-test: install
-	pytest tests
+test:
+	tox -p
+
+build:
+	poetry build
+
+publish: build
+	python -mtwine upload dist/*
+

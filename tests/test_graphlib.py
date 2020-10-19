@@ -1,9 +1,24 @@
-from itertools import chain
-import graphlib
 import os
 import unittest
-
 from test.support.script_helper import assert_python_ok
+
+import graphlib
+
+
+def tuple_to_set_list(l):
+    """ Convert list of tuples to list of sets """
+    return [set(t) for t in l]
+
+
+def static_order_to_list_of_sets(l, tuples):
+    """ Split list into sets """
+    sets = []
+    for t in tuples:
+        length = len(t)
+        sets.append(set(l[:length]))
+        l = l[length:]
+    return sets
+
 
 class TestTopologicalSort(unittest.TestCase):
     def _test_graph(self, graph, expected):
@@ -16,10 +31,16 @@ class TestTopologicalSort(unittest.TestCase):
                 yield nodes
 
         ts = graphlib.TopologicalSorter(graph)
-        self.assertEqual(list(static_order_with_groups(ts)), list(expected))
+        self.assertEqual(
+            tuple_to_set_list(static_order_with_groups(ts)),
+            tuple_to_set_list(expected)
+        )
 
         ts = graphlib.TopologicalSorter(graph)
-        self.assertEqual(list(ts.static_order()), list(chain(*expected)))
+        self.assertEqual(
+            static_order_to_list_of_sets(list(ts.static_order()), expected),
+            tuple_to_set_list(expected)
+        )
 
     def _assert_cycle(self, graph, cycle):
         ts = graphlib.TopologicalSorter()
