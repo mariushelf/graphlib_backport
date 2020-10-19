@@ -9,5 +9,6 @@ download_sourcecode:
 install:
 	poetry install
 
-test: install
-	pytest tests
+test:
+	tox
+
