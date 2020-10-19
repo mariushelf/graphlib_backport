@@ -10,5 +10,4 @@ install:
 	poetry install
 
 test:
-	tox
-
+	tox -p
