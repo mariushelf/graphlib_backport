@@ -12,9 +12,12 @@ install:
 test:
 	tox -p
 
+clean:
+	rm -rf dist
+
 build:
 	poetry build
 
-publish: build
-	python -mtwine upload dist/*
+publish: clean build
+	python -mtwine upload dist/* --verbose
 
