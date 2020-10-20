@@ -71,3 +71,9 @@ So all thanks go to the original contributors of the
 
 [PSF](https://docs.python.org/3/license.html#psf-license)
 
+Copyright © 2001-2020 Python Software Foundation; All Rights Reserved
+
+Changes to the sourcecode and the tests: replace incompatible code
+(e.g., the `:=` walrus operator) with constructions compatible to
+earlier versions of Python, and make the tests pass on all supported
+versions.
