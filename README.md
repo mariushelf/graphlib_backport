@@ -17,6 +17,17 @@ This backport currently support Python 3.6, 3.7, 3.8, 3.9 and and pypy3
 
 `pip install graphlib_backport`
 
+It is recommended to limit installation of this package to version of Python <3.9 and
+use the original implementation for Python >=3.9.
+
+For example in a [poetry](https://python-poetry.org/) `pyproject.toml` this can be done
+by specifying the dependency as a
+[Python restricted dependency](https://python-poetry.org/docs/dependency-specification/#python-restricted-dependencies):
+```
+[tool.poetry.dependencies]
+graphlib_backport = {version="^1.0.0", python="<3.9"}
+```
+
 # Usage
 
 The package works the very same way as the original package.
