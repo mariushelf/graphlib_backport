@@ -9,7 +9,7 @@ Github:
 
 # Supported versions
 
-This backport currently support Python 3.6, 3.7, 3.8, 3.9 and and pypy3
+This backport currently supports Python 3.6, 3.7, 3.8, 3.9 and and pypy3
 (tested with pypy3.6).
 
 
@@ -66,7 +66,7 @@ You can install them with [pyenv](https://github.com/pyenv/pyenv).
 ## Publishing a new version
 
 Update the version in the pyproject.toml and run `make publish` to build and upload
-the package ti PyPI.
+the package to PyPI.
 
 
 # Thanks
