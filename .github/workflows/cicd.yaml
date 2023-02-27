@@ -55,9 +55,9 @@ jobs:
     - name: Install tox, tox-gh
       run: python -m pip install tox tox-gh
     - name: Setup test suite
-      run: tox r --notest
+      run: python -mtox r --notest
     - name: Run test suite
-      run: tox r --skip-pkg-install
+      run: python -mtox r --skip-pkg-install
       env:
         PYTEST_ADDOPTS: "-vv --durations=10"
   build-n-publish:
