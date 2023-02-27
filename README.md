@@ -1,4 +1,7 @@
 # graphlib backport
+[![Tests](https://github.com/mariushelf/graphlib_backport/actions/workflows/cicd.yaml/badge.svg)](https://github.com/mariushelf/graphlib_backport/actions/workflows/cicd.yaml)
+[![PyPI version](https://badge.fury.io/py/graphlib_backport.svg)](https://pypi.org/project/graphlib_backport/)
+[![Downloads](https://static.pepy.tech/personalized-badge/graphlib-backport?period=total&units=international_system&left_color=grey&right_color=blue&left_text=Downloads)](https://pepy.tech/project/graphlib-backport)
 
 Backport of the Python 3.9
 [graphlib](https://docs.python.org/3/library/graphlib.html)
@@ -7,10 +10,14 @@ module for older Python versions.
 Github:
 [https://github.com/mariushelf/graphlib_backport](https://github.com/mariushelf/graphlib_backport)
 
+
 # Supported versions
 
-This backport currently supports Python 3.6, 3.7, 3.8, 3.9 and and pypy3
-(tested with pypy3.6).
+This backport currently supports Python 3.6, 3.7, 3.8, 3.9, 3.10, 3.11 and pypy3
+(tested with pypy3.6, 3.7, 3.8 and 3.9).
+
+Support for Python 3.6 and 3.7 is somewhat experimental and due to be dropped
+because of the end of support for these old versions.
 
 
 # Installation
@@ -65,8 +72,8 @@ You can install them with [pyenv](https://github.com/pyenv/pyenv).
 
 ## Publishing a new version
 
-Update the version in the pyproject.toml and run `make publish` to build and upload
-the package to PyPI.
+Create a new tag and create a new release on Github. This will automatically
+publish the package to PyPI.
 
 
 # Thanks
@@ -82,7 +89,7 @@ So all thanks go to the original contributors of the
 
 [PSF](https://docs.python.org/3/license.html#psf-license)
 
-Copyright © 2001-2020 Python Software Foundation; All Rights Reserved
+Copyright © 2001-2023 Python Software Foundation; All Rights Reserved
 
 Changes to the sourcecode and the tests: replace incompatible code
 (e.g., the `:=` walrus operator) with constructions compatible to

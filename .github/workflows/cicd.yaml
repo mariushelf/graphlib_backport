@@ -1,0 +1,102 @@
+name: CI/CD
+
+on: # events that trigger our pipeline: push on any branch and release creation
+  push:
+  release:
+    types: [published]
+
+jobs:
+  lint:
+    environment: test
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version:
+          - "3.7"
+          - "3.8"
+          - "3.9"
+          - "3.10"
+          - "3.11"
+        platform: [ubuntu-20.04]
+    runs-on: ${{ matrix.platform }}
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install dependencies
+        run: pip install pre-commit
+      - name: Run pre-commit hooks
+        run: pre-commit run --all-files
+  test:
+    environment: test
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version:
+          - "3.6"
+          - "3.7"
+          - "3.8"
+          - "3.9"
+          - "3.10"
+          - "3.11"
+          - "pypy-3.6"
+          - "pypy-3.7"
+          - "pypy-3.8"
+          - "pypy-3.9"
+        platform: [ubuntu-20.04, macos-latest, windows-latest]
+        exclude:
+          - python-version: "pypy-3.6"  # does not work on windows
+            platform: "windows-latest"
+          - python-version: "pypy-3.6"  # does not work on macos
+            platform: "macos-latest"
+    runs-on: ${{ matrix.platform }}
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ matrix.python-version }}
+    - uses: actions/checkout@v2
+    - name: Install tox, tox-gh
+      run: python -m pip install tox tox-gh
+    - name: Setup test suite
+      run: python -mtox r --notest
+    - name: Run test suite
+      run: python -mtox r --skip-pkg-install
+      env:
+        PYTEST_ADDOPTS: "-vv --durations=10"
+  build-n-publish:
+    environment: production
+    name: Build and publish Python distributions to PyPI
+    needs:
+      - test
+      - lint
+    if: github.event_name == 'release' && github.event.action == 'published'
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v4
+      with:
+        python-version: "3.10"
+    - name: Install poetry
+      run: |
+        curl -sSL https://install.python-poetry.org | python3 -
+        export PATH=$PATH:$HOME/.local/bin
+    - name: Check tag and version match
+      run: |
+        if [ "`poetry version -s`" != "${{ github.ref_name }}" ]; then
+          echo Tag ${{ github.ref_name }} does not match package version `poetry version -s`.
+          exit 1
+        else
+          echo Package version and tag match.
+        fi
+    - name: Build package
+      run: poetry build
+    - name: Publish package to PyPI
+      uses: pypa/gh-action-pypi-publish@release/v1
+      with:
+        user: __token__
+        password: ${{ secrets.PYPI_API_TOKEN }}

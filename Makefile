@@ -17,7 +17,3 @@ clean:
 
 build:
 	poetry build
-
-publish: test clean build
-	python -mtwine upload dist/* --verbose
-
