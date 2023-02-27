@@ -6,12 +6,12 @@ import graphlib
 
 
 def tuple_to_set_list(l):
-    """ Convert list of tuples to list of sets """
+    """Convert list of tuples to list of sets"""
     return [set(t) for t in l]
 
 
 def static_order_to_list_of_sets(l, tuples):
-    """ Split list into sets """
+    """Split list into sets"""
     sets = []
     for t in tuples:
         length = len(t)
@@ -32,14 +32,13 @@ class TestTopologicalSort(unittest.TestCase):
 
         ts = graphlib.TopologicalSorter(graph)
         self.assertEqual(
-            tuple_to_set_list(static_order_with_groups(ts)),
-            tuple_to_set_list(expected)
+            tuple_to_set_list(static_order_with_groups(ts)), tuple_to_set_list(expected)
         )
 
         ts = graphlib.TopologicalSorter(graph)
         self.assertEqual(
             static_order_to_list_of_sets(list(ts.static_order()), expected),
-            tuple_to_set_list(expected)
+            tuple_to_set_list(expected),
         )
 
     def _assert_cycle(self, graph, cycle):
