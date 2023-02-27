@@ -1,0 +1,89 @@
+name: CI/CD
+
+on: # events that trigger our pipeline: push on any branch and release creation
+  push:
+  release:
+    types: [published]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: "3.6"  # lowest supported version
+      - name: Install dependencies
+        run: pip install pre-commit
+      - name: Run pre-commit hooks
+        run: pre-commit run --all-files
+  test:
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version:
+          - "3.6"
+          - "3.7"
+          - "3.8"
+          - "3.9"
+          - "3.10"
+          - "3.11"
+          - "3.12"
+          - "pypy-3.6"
+          - "pypy-3.7"
+          - "pypy-3.8"
+          - "pypy-3.9"
+        platform: [ubuntu-latest, macos-latest, windows-latest]
+    runs-on: ${{ matrix.platform }}
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v3
+      with:
+        python-version: ${{ matrix.python-version }}
+    - name: Install dependencies
+      run: |
+        pip install poetry
+        poetry install
+    - name: Run pytest
+      run: |
+        poetry run pytest --cov-report=xml --cov=graphlib_backport tests
+    - name: "Upload coverage to Codecov"
+      uses: codecov/codecov-action@v3
+      with:
+        fail_ci_if_error: false
+#        token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
+  build-n-publish:
+    environment: production
+    name: Build and publish Python distributions to PyPI
+    needs:
+      - test
+      - lint
+    if: github.event_name == 'release' && github.event.action == 'published'
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+    - name: Install poetry
+      run: |
+        curl -sSL https://install.python-poetry.org | python3 -
+        export PATH=$PATH:$HOME/.local/bin
+    - name: Check tag and version match
+      run: |
+        if [ "`poetry version -s`" != "${{ github.ref_name }}" ]; then
+          echo Tag ${{ github.ref_name }} does not match package version `poetry version -s`.
+          exit 1
+        else
+          echo Package version and tag match.
+        fi
+    - name: Build package
+      run: poetry build
+    - name: Publish package to PyPI
+      uses: pypa/gh-action-pypi-publish@release/v1
+      with:
+        user: __token__
+        password: ${{ secrets.PYPI_API_TOKEN }}
