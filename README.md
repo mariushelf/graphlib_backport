@@ -1,4 +1,8 @@
 # graphlib backport
+[![Tests](https://github.com/mariushelf/graphlib_backport/actions/workflows/cicd.yaml/badge.svg)](https://github.com/mariushelf/graphlib_backport/actions/workflows/cicd.yaml)
+[![codecov](https://codecov.io/gh/mariushelf/graphlib_backport/branch/master/graph/badge.svg)](https://codecov.io/gh/mariushelf/graphlib_backport)
+[![PyPI version](https://badge.fury.io/py/graphlib_backport.svg)](https://pypi.org/project/graphlib_backport/)
+[![Downloads](https://static.pepy.tech/personalized-badge/graphlib-backport?period=total&units=international_system&left_color=grey&right_color=blue&left_text=Downloads)](https://pepy.tech/project/graphlib-backport)
 
 Backport of the Python 3.9
 [graphlib](https://docs.python.org/3/library/graphlib.html)
@@ -9,8 +13,8 @@ Github:
 
 # Supported versions
 
-This backport currently supports Python 3.6, 3.7, 3.8, 3.9 and and pypy3
-(tested with pypy3.6).
+This backport currently supports Python 3.6, 3.7, 3.8, 3.9, 3.10, 3.11, 3.12 and and pypy3
+(tested with pypy3.6, 3.7, 3.8 and 3.9).
 
 
 # Installation
