@@ -10,9 +10,10 @@ module for older Python versions.
 Github:
 [https://github.com/mariushelf/graphlib_backport](https://github.com/mariushelf/graphlib_backport)
 
+
 # Supported versions
 
-This backport currently supports Python 3.6, 3.7, 3.8, 3.9, 3.10, 3.11, 3.12 and and pypy3
+This backport currently supports Python 3.6, 3.7, 3.8, 3.9, 3.10, 3.11 and pypy3
 (tested with pypy3.6, 3.7, 3.8 and 3.9).
 
 Support for Python 3.6 and 3.7 is somewhat experimental and due to be dropped
