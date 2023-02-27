@@ -7,6 +7,7 @@ on: # events that trigger our pipeline: push on any branch and release creation
 
 jobs:
   lint:
+    environment: test
     strategy:
       fail-fast: false
       matrix:
@@ -29,6 +30,7 @@ jobs:
       - name: Run pre-commit hooks
         run: pre-commit run --all-files
   test:
+    environment: test
     strategy:
       fail-fast: false
       matrix:
@@ -44,6 +46,9 @@ jobs:
           - "pypy-3.8"
           - "pypy-3.9"
         platform: [ubuntu-20.04, macos-latest, windows-latest]
+        exclude:
+          - python-version: "pypy-3.6"  # does not work on macos
+            platform: "macos-latest"
     runs-on: ${{ matrix.platform }}
     steps:
     - uses: actions/checkout@v3
