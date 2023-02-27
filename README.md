@@ -1,6 +1,5 @@
 # graphlib backport
 [![Tests](https://github.com/mariushelf/graphlib_backport/actions/workflows/cicd.yaml/badge.svg)](https://github.com/mariushelf/graphlib_backport/actions/workflows/cicd.yaml)
-[![codecov](https://codecov.io/gh/mariushelf/graphlib_backport/branch/master/graph/badge.svg)](https://codecov.io/gh/mariushelf/graphlib_backport)
 [![PyPI version](https://badge.fury.io/py/graphlib_backport.svg)](https://pypi.org/project/graphlib_backport/)
 [![Downloads](https://static.pepy.tech/personalized-badge/graphlib-backport?period=total&units=international_system&left_color=grey&right_color=blue&left_text=Downloads)](https://pepy.tech/project/graphlib-backport)
 
