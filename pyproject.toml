@@ -4,6 +4,20 @@ version = "1.0.3"
 description = "Backport of the Python 3.9 graphlib module for Python 3.6+"
 authors = ["Marius Helf <helfsmarius@gmail.com>"]
 license = "PSF"
+homepage = "https://github.com/mariushelf/graphlib_backport"
+repository = "https://github.com/mariushelf/graphlib_backport"
+documentation = "https://github.com/mariushelf/graphlib_backport"
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Programming Language :: Python :: 3.6",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: Implementation :: PyPy"
+]
 packages = [
     {include="graphlib"}
 ]
