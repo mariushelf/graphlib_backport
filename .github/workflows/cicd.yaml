@@ -34,7 +34,6 @@ jobs:
       fail-fast: false
       matrix:
         python-version:
-          - "3.6"
           - "3.7"
           - "3.8"
           - "3.9"
@@ -56,9 +55,9 @@ jobs:
     - name: Install tox, tox-gh
       run: python -m pip install tox tox-gh
     - name: Setup test suite
-      run: tox4 r --notest
+      run: tox r --notest
     - name: Run test suite
-      run: tox4 r --skip-pkg-install
+      run: tox r --skip-pkg-install
       env:
         PYTEST_ADDOPTS: "-vv --durations=10"
   build-n-publish:
