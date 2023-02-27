@@ -69,8 +69,8 @@ You can install them with [pyenv](https://github.com/pyenv/pyenv).
 
 ## Publishing a new version
 
-Update the version in the pyproject.toml and run `make publish` to build and upload
-the package to PyPI.
+Create a new tag and create a new release on Github. This will automatically
+publish the package to PyPI.
 
 
 # Thanks
@@ -86,7 +86,7 @@ So all thanks go to the original contributors of the
 
 [PSF](https://docs.python.org/3/license.html#psf-license)
 
-Copyright © 2001-2020 Python Software Foundation; All Rights Reserved
+Copyright © 2001-2023 Python Software Foundation; All Rights Reserved
 
 Changes to the sourcecode and the tests: replace incompatible code
 (e.g., the `:=` walrus operator) with constructions compatible to
