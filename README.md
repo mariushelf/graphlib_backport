@@ -1,7 +1,7 @@
 # graphlib backport
 [![Tests](https://github.com/mariushelf/graphlib_backport/actions/workflows/cicd.yaml/badge.svg)](https://github.com/mariushelf/graphlib_backport/actions/workflows/cicd.yaml)
 [![PyPI version](https://badge.fury.io/py/graphlib_backport.svg)](https://pypi.org/project/graphlib_backport/)
-[![Downloads](https://static.pepy.tech/personalized-badge/graphlib-backport?period=total&units=international_system&left_color=grey&right_color=blue&left_text=Downloads)](https://pepy.tech/project/graphlib-backport)
+[![Downloads](https://static.pepy.tech/badge/graphlib-backport/month)](https://pepy.tech/project/graphlib-backport)
 
 Backport of the Python 3.9
 [graphlib](https://docs.python.org/3/library/graphlib.html)
