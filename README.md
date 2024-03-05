@@ -44,7 +44,7 @@ The package works the very same way as the original package.
 # Contributing
 
 Contributions are welcome! 
-See [CONTRIBUTING](https://github.com/mariushelf/graphlib-backport/CONTRIBUTING).
+See [CONTRIBUTING](https://github.com/mariushelf/graphlib_backport/blob/master/CONTRIBUTING).
 
 
 # Development
@@ -88,7 +88,7 @@ otherwise the release will fail.
 
 # Changelog
 
-See [CHANGELOG.md](https://github.com/mariushelf/graphlib-backport/CHANGELOG.md)
+See [CHANGELOG.md](https://github.com/mariushelf/graphlib_backport/blob/master/CHANGELOG.md)
 
 
 # Thanks
