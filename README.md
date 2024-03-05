@@ -44,7 +44,7 @@ The package works the very same way as the original package.
 # Contributing
 
 Contributions are welcome! 
-See [CONTRIBUTING.md](https://github.com/mariushelf/CONTRIBUTING.md).
+See [CONTRIBUTING](https://github.com/mariushelf/graphlib-backport/CONTRIBUTING).
 
 
 # Development
