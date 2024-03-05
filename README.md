@@ -76,6 +76,11 @@ Create a new tag and create a new release on Github. This will automatically
 publish the package to PyPI.
 
 
+# Changelog
+
+See [CHANGELOG.md](https://github.com/mariushelf/graphlib-backport/CHANGELOG.md)
+
+
 # Thanks
 
 I did not create this code -- I only repackaged it so it can be
