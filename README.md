@@ -13,7 +13,7 @@ Github:
 
 # Supported versions
 
-This backport currently supports Python 3.6, 3.7, 3.8, 3.9, 3.10, 3.11 and pypy3
+This backport currently supports Python 3.6, 3.7, 3.8, 3.9, 3.10, 3.11, 3.12 and pypy3
 (tested with pypy3.6, 3.7, 3.8 and 3.9).
 
 Support for Python 3.6 and 3.7 is somewhat experimental and due to be dropped
@@ -39,6 +39,12 @@ graphlib_backport = {version="^1.0.0", python="<3.9"}
 
 The package works the very same way as the original package.
 [Here's](https://docs.python.org/3/library/graphlib.html) the documentation.
+
+
+# Contributing
+
+Contributions are welcome! 
+See [CONTRIBUTING.md](https://github.com/mariushelf/CONTRIBUTING.md).
 
 
 # Development
@@ -72,8 +78,12 @@ You can install them with [pyenv](https://github.com/pyenv/pyenv).
 
 ## Publishing a new version
 
-Create a new tag and create a new release on Github. This will automatically
-publish the package to PyPI.
+Create a new tag of the form `x.y.z` (no leading "v"),
+and create a new release on Github.
+This will automatically publish the package to PyPI.
+
+Make sure that the version in `pyproject.toml` exactly matches the tag,
+otherwise the release will fail.
 
 
 # Changelog
